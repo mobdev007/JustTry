@@ -26,7 +26,9 @@ public class CreateMessageActivity extends Activity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+        String message = em.getText().toString();
         Intent i = new Intent(this,ReceiveMessageActivity.class);
-        startActivityForResult(i, 2);
+        i.putExtra("message",message);
+        startActivity(i);
     }
 }

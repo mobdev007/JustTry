@@ -16,8 +16,11 @@ public class ReceiveMessageActivity extends Activity implements View.OnClickList
     protected void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.receivemessage_activity);
+        Bundle bundle= getIntent().getExtras();
+        String message= bundle.getString("message");
 
         rm = (TextView)findViewById(R.id.receivemessage);
+        rm.setText(message);
         back = (Button) findViewById(R.id.backButton);
         back.setOnClickListener(this);
 
@@ -26,20 +29,10 @@ public class ReceiveMessageActivity extends Activity implements View.OnClickList
     @Override
     public void onClick(View v) {
 
-        String message = rm.getText().toString();
-        Intent i = new Intent();
-        i.putExtra("MESSAGE",message);
-        setResult(2,i);
-        finish();
+
+        Intent i = new Intent(this,CreateMessageActivity.class);
+        startActivity(i);
 
     }
-    protected void onActivityResult (int requestCode,int resultCode,Intent data){
-        super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == 2)
-        {
-            String Message = data.getStringExtra("message");
-            rm.setText(Message);
-        }
-    }
 }
