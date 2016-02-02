@@ -25,8 +25,7 @@ public class WeekActivity extends Activity implements AdapterView.OnItemClickLis
         Button b= (Button)findViewById(R.id.button);
         b.setOnClickListener(this);
         days = (ListView)findViewById(R.id.day);
-
-//        String[] week = new String[]{"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
+        
         //define a new adapter
         //first parameter=context
         //second parameter=layout of the row
